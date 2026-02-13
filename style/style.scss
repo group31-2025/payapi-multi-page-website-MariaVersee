@@ -22,6 +22,23 @@
   font-family: $Sans;
   font-size: $Psize;
   font-weight: 400;
+  line-height: 28px;
+}
+
+@mixin flex($direction: row, $align: flex-start, $justify: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin regularH2($text-collor) {
+  font-family: $Serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: -0.369px;
+  color: $text-collor;
 }
 
 header {
@@ -276,6 +293,84 @@ main {
         left: 50%;
         transform: translate(-50%);
         top: -548px;
+      }
+    }
+  }
+
+  .main-content {
+    width: 100%;
+    min-height: 100px;
+    padding: 143px 165px 96px 165px;
+    @media (max-width: 992px) {
+    }
+    @media (max-width: 700px) {
+      padding: 80px 24px;
+    }
+
+    .implementation {
+      width: 100%;
+      min-height: 50px;
+
+      img {
+        @media (max-width: 700px) {
+          width: 100%;
+        }
+      }
+
+      @include flex(row, center, space-evenly);
+
+      @media (max-width: 992px) {
+        @include flex(column, center, center);
+      }
+
+      .implement {
+        max-width: 445px;
+        @media (max-width: 992px) {
+          text-align: center;
+          max-width: 573px;
+        }
+        h2 {
+          @include regularH2($San-Juan-Blue);
+          margin-bottom: 24px;
+        }
+        p {
+          @include regularP($Light-San-Juan-Blue);
+          line-height: 28px;
+        }
+      }
+    }
+
+    .ui-ux {
+      @include flex(row, center, space-evenly);
+
+      @media (max-width: 992px) {
+        @include flex(column-reverse, center, center);
+        margin-top: 100px;
+      }
+
+      img {
+        @media (max-width: 700px) {
+          width: 100%;
+        }
+        @media (max-width: 992px) {
+          width: 100%;
+        }
+      }
+
+      .ui-ux-info {
+        max-width: 445px;
+        @media (max-width: 992px) {
+          text-align: center;
+          max-width: 573px;
+        }
+        h2 {
+          @include regularH2($San-Juan-Blue);
+          margin-bottom: 24px;
+        }
+
+        p {
+          @include regularP($Light-San-Juan-Blue);
+        }
       }
     }
   }
